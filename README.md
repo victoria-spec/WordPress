@@ -61,8 +61,4 @@ bash
 
 * Edit **style.css** for color, fonts, and spacing.
 * Modify **card-grid** styles in CSS to change layout.
----
-
-
----
 
