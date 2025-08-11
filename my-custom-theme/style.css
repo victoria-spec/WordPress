@@ -1,0 +1,241 @@
+/* ===== style.css - Clean Unified Theme =====
+   Replace your current style.css with this file.
+*/
+
+/* ========== Variables ========== */
+:root{
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #111827;
+  --primary: #0d6efd; /* blue - change if you prefer */
+  --header-bg: #ffffff;
+  --header-border: #e6e9ee;
+  --radius: 10px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.06);
+}
+
+/* ========== Reset ========== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ========== Header & Nav ========== */
+header{
+  background:var(--header-bg);
+  border-bottom:1px solid var(--header-border);
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.header-inner{
+  width:90%;
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:14px 0;
+}
+
+/* Site title */
+.site-title{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--text);
+  margin:0;
+}
+.site-title a{ color:inherit; text-decoration:none; }
+
+/* Ensure any menu markup works: use several selectors */
+nav ul,
+.nav-container ul,
+.main-menu ul,
+.menu,
+nav.menu{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex !important;      /* force horizontal */
+  flex-wrap:wrap;
+  gap:18px;
+  align-items:center;
+}
+
+/* individual items */
+nav ul li,
+.nav-container li,
+.main-menu li,
+.menu li{
+  margin:0;
+}
+
+nav ul a,
+.nav-container a,
+.main-menu a,
+.menu a{
+  display:inline-block;
+  padding:8px 12px;
+  color:var(--text);
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+  transition:all .15s ease;
+}
+
+/* Right aligned style if nav container uses flex-end */
+.nav-container{ display:flex; justify-content:flex-end; align-items:center; }
+
+/* Hover & active */
+nav ul a:hover,
+.nav-container a:hover,
+.main-menu a:hover,
+.menu a:hover{
+  background:rgba(13,110,253,0.08);
+  color:var(--primary);
+}
+
+/* ========== Layout wrapper ========== */
+.container,
+.content-wrapper{
+  width:90%;
+  max-width:1100px;
+  margin:28px auto;
+  padding:0 8px;
+}
+
+/* ========== Hero / front intro ========== */
+.front-hero{
+  background:var(--card);
+  padding:36px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  margin-bottom:28px;
+}
+.front-hero h1{ font-size:2rem; margin-bottom:8px; }
+.front-hero p{ color:var(--muted); font-size:1rem; max-width:820px; margin:0 auto; }
+
+/* ========== Cards (Projects & Blog) ========== */
+.card-grid,
+.project-grid,
+.blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:20px;
+  align-items:start;
+}
+
+/* Generic card */
+.card,
+.project-card,
+.blog-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  min-height:140px;
+}
+
+.card h3,
+.project-card h3,
+.blog-card h3{ margin:0 0 8px 0; font-size:1.1rem; color:var(--text); }
+.card p,
+.project-card p,
+.blog-card p{ color:var(--muted); margin:0 0 12px 0; flex:0 0 auto; }
+
+/* Buttons inside cards */
+.card .btn,
+.project-card .btn,
+.blog-card .btn{
+  margin-top:auto;
+  align-self:flex-start;
+  background:var(--primary);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+.card .btn:hover{ background:#0b5ed7; }
+
+/* Small metadata line (dates) */
+.meta-line{
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-bottom:10px;
+}
+
+/* ========== Featured (Latest) Project ========== */
+.featured{
+  display:flex;
+  gap:20px;
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  margin-bottom:24px;
+  align-items:center;
+}
+.featured .left{flex:1}
+.featured .right{flex:1}
+.featured h2{margin-top:0}
+.featured p{color:var(--muted)}
+
+/* ========== Filter Form ========== */
+.project-filter-form{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  background:transparent;
+  margin-bottom:16px;
+}
+.project-filter-form label{ font-weight:600; color:var(--muted); font-size:0.95rem; }
+.project-filter-form input[type="date"],
+.project-filter-form button{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #dde3ea;
+}
+.project-filter-form button{
+  background:var(--primary);
+  color:#fff;
+  border:0;
+  cursor:pointer;
+}
+.project-filter-form button:hover{ background:#0b5ed7; }
+
+/* ========== Misc utilities ========== */
+.center { text-align:center; }
+.small { font-size:0.9rem; color:var(--muted); }
+
+/* ========== Footer ========== */
+footer{
+  background:var(--header-bg);
+  border-top:1px solid var(--header-border);
+  padding:22px 0;
+  margin-top:36px;
+}
+footer .container{ display:flex; justify-content:center; align-items:center; }
+
+/* ========== Responsiveness ========== */
+@media (max-width:900px){
+  .featured{ flex-direction:column; }
+  .nav-container{ justify-content:flex-end; }
+}
+@media (max-width:560px){
+  .header-inner{ padding:10px; }
+  nav ul, .nav-container ul { gap:10px; }
+  .front-hero h1{ font-size:1.6rem; }
+}
